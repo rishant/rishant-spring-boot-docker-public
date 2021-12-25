@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  spring-boot-docker-sample:
+    image: rishantgupta/spring-boot-docker-sample.jar:latest
+    container_name: spring-boot-docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    expose:
+      - 8080
+    ports:
+      - 9090:8080
