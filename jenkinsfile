@@ -75,7 +75,7 @@ pipeline {
 */	
         stage('Push') {
             steps {
-	    	withDockerRegistry([ credentialsId: "dockerhub-jenkins-up", url: "https://index.docker.io/v1/" ]){            
+	    	withDockerRegistry([ credentialsId: "dockerhub-jenkins-up", url: "" ]){            
 	                bat 'docker push rishantgupta/spring-boot-docker-sample.jar:latest'
 		}
             }
