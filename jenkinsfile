@@ -66,17 +66,18 @@ pipeline {
             }
         }
 
+/* //Not working any changes.
         stage('Login') {
             steps {
 		bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin https://registry.hub.docker.com'
             }
         }
-	
+*/	
         stage('Push') {
             steps {
-	    	//withDockerRegistry([ credentialsId: "dockerhub-jenkins-up", url: "https://index.docker.io/v1/" ]){            
+	    	withDockerRegistry([ credentialsId: "dockerhub-jenkins-up", url: "https://index.docker.io/v1/" ]){            
 	                bat 'docker push rishantgupta/spring-boot-docker-sample.jar:latest'
-		//}
+		}
             }
         }
     }
