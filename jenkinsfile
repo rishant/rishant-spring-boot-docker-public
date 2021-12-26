@@ -65,10 +65,10 @@ pipeline {
                 bat 'docker build -t rishantgupta/spring-boot-docker-sample.jar:latest .'   
             }
         }
-	
+
         stage('Login') {
             steps {
-		bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin https://hub.docker.com/v2/users/login'
+		bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin https://registry.hub.docker.com'
             }
         }
 	
